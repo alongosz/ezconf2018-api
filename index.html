@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Using eZ Platform in an API Era</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/ez.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -22,10 +22,27 @@
 		</script>
 	</head>
 	<body>
+		<img id="logo" src="/assets/img/ez-logo.svg" alt="eZ Systems AS">
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background-image="assets/bg-intro.png" data-background-repeat="no-repeat">
+					<h3>Using eZ Platform in an API era</h3>
+				</section>
+				<section
+					data-markdown="slides/01-overview.md" data-separator="^\n\n\n"
+					data-separator-vertical="^\n\n" data-separator-notes="^Note:"
+					data-charset="UTF-8">
+				</section>
+				<section
+					data-markdown="slides/02-overview.md" data-separator="^\n\n\n"
+					data-separator-vertical="^\n\n" data-separator-notes="^Note:"
+					data-charset="UTF-8">
+				</section>
+				<section
+					data-markdown="slides/03-overview.md" data-separator="^\n\n\n"
+					data-separator-vertical="^\n\n" data-separator-notes="^Note:"
+					data-charset="UTF-8">
+				</section>
 			</div>
 		</div>
 
@@ -33,9 +50,6 @@
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -43,6 +57,13 @@
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
+			});
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				var logo = !Reveal.isFirstSlide() ? 'ez-logo-black.svg' : 'ez-logo.svg';
+				document.getElementById('logo').setAttribute(
+					'src',
+					'/assets/img/' + logo
+				);
 			});
 		</script>
 	</body>
