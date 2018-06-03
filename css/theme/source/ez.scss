@@ -44,6 +44,30 @@ section.has-dark-background {
 	left: 1em;
 }
 
+#intro_authors {
+	font-size: 0.5em;
+	margin-top: 3em;
+}
+
+.col-wrapper {
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+section > div.slides_link {
+	clear: both;
+	margin-top: 14em;
+	font-size: 0.5em;
+	text-align: right;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------

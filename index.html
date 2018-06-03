@@ -22,11 +22,31 @@
 		</script>
 	</head>
 	<body>
-		<img id="logo" src="/assets/img/ez-logo.svg" alt="eZ Systems AS">
+		<img id="logo" src="assets/img/ez-logo.svg" alt="eZ Systems AS">
 		<div class="reveal">
 			<div class="slides">
 				<section data-background-image="assets/bg-intro.png" data-background-repeat="no-repeat">
 					<h3>Using eZ Platform in an API era</h3>
+					<p style="font-size: 0.7em;">
+						The time for monolithic applications is far gone. Now developers are building solutions by assembling applications and services of all kinds and in all ways.
+					</p>
+					<p style="font-size: 0.7em;">
+						We'll show you how eZ Platform embraces the modern way of building applications by interacting with its Content Repository using <br />
+						Public (PHP) API and REST API.
+					</p>
+					<div id="intro_authors" class="col-wrapper">
+						<div class="left">
+							Bertrand Dunogier <br/>
+							<a href="https://twitter.com/bdunogier">https://twitter.com/bdunogier</a>
+						</div>
+						<div class="right">
+							Andrew Longosz <br/>
+							<a href="https://twitter.com/andrew_longosz">https://twitter.com/andrew_longosz</a>
+						</div>
+					</div>
+					<div class="slides_link">
+						<a href="https://alongosz.github.io/ezconf2018-api/">https://alongosz.github.io/ezconf2018-api/</a>
+					</div>
 				</section>
 				<section
 					data-markdown="slides/01-overview.md" data-separator="^\n\n\n"
@@ -62,7 +82,7 @@
 				var logo = !Reveal.isFirstSlide() ? 'ez-logo-black.svg' : 'ez-logo.svg';
 				document.getElementById('logo').setAttribute(
 					'src',
-					'/assets/img/' + logo
+					'assets/img/' + logo
 				);
 			});
 		</script>
