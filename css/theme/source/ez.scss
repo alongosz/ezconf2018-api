@@ -36,6 +36,13 @@ section.has-dark-background {
 	}
 }
 
+#intro {
+	a {
+		color: #000;
+		font-weight: bold;
+	}
+}
+
 #logo {
 	height: 45px;
 	position: fixed;
@@ -45,27 +52,24 @@ section.has-dark-background {
 }
 
 #intro_authors {
-	font-size: 0.5em;
-	margin-top: 3em;
-}
-
-.col-wrapper {
+	position: absolute;
+	width: 100%;
+	font-size: 0.7em;
+	clear: both;
+	.left, .right {
+		position: relative;
+		bottom: -5em;
+	}
 	.left {
+		left: -2em;
 		float: left;
+		text-align: left;
 	}
 	.right {
+		right: -4em;
 		float: right;
+		text-align: right;
 	}
-	&:after {
-		clear: both;
-	}
-}
-
-section > div.slides_link {
-	clear: both;
-	margin-top: 14em;
-	font-size: 0.5em;
-	text-align: right;
 }
 
 // Theme template ------------------------------

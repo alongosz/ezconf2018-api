@@ -9,6 +9,10 @@
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #fff; }
 
+#intro a {
+  color: #000;
+  font-weight: bold; }
+
 #logo {
   height: 45px;
   position: fixed;
@@ -17,23 +21,21 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   left: 1em; }
 
 #intro_authors {
-  font-size: 0.5em;
-  margin-top: 3em; }
-
-.col-wrapper .left {
-  float: left; }
-
-.col-wrapper .right {
-  float: right; }
-
-.col-wrapper:after {
+  position: absolute;
+  width: 100%;
+  font-size: 0.7em;
   clear: both; }
-
-section > div.slides_link {
-  clear: both;
-  margin-top: 14em;
-  font-size: 0.5em;
-  text-align: right; }
+  #intro_authors .left, #intro_authors .right {
+    position: relative;
+    bottom: -5em; }
+  #intro_authors .left {
+    left: -2em;
+    float: left;
+    text-align: left; }
+  #intro_authors .right {
+    right: -4em;
+    float: right;
+    text-align: right; }
 
 /*********************************************
  * GLOBAL STYLES
