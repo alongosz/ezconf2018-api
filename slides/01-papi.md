@@ -36,3 +36,29 @@ API - _Application Programming Interface_ - is a method or set of well defined a
 - Templates.
 - Database schema (though there is still a separate BC promise for that).
 - Anything located in `eZ\Publish\Core` namespace.
+
+
+### Semantic Versioning
+
+eZ Platform packages, including<br /> `ezpublish-kernel`
+follow the SemVer version numbering convention:
+
+X.Y.Z (e.g. 2.1.1)
+
+where:
+- X is major version (release).
+- Y is minor version.
+- Z is patch version.
+
+For more information see [https://semver.org/](https://semver.org/).
+
+
+### BC promise
+
+Backward Compatibility promise is related mostly to changes between minor (Y) versions.
+
+**Any minor release Y will not break existing code written for major version X.**
+
+#### eZ Platform API
+
+We ensure that any usage of API from the Consumer point of view will work across any minor (Y) release.
