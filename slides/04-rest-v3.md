@@ -10,15 +10,6 @@ REST API has not been our focus since 1.0.
 - v2 won't receive significant improvements
 
 
-### Future
-Rework will have to happen one day
-
-API Platform as a basis / inspiration
-- Modern formats
-- Rely on Symfony Serialization
-- Dynamically self-documented
-
-
 ### Time anomalies
 ### GraphQL prototype
 
@@ -63,37 +54,67 @@ API Platform as a basis / inspiration
 ```
 
 
-### Based on
-- webonyx/graphql-php
-- overblog/graphqlbundle
-- uses outdated versions
-- API Platform uses webonyx/graphql-php
+### The prototype
+
+[bdunogier/ezplatform-graphql-bundle](https://github.com/bdunogier/ezplatform-graphql-bundle)
+
+Based on [webonyx/graphql-php](https://github.com/webonyx/graphql-php) and
+[overblog/graphqlbundle](https://github.com/overblog/graphqlbundle).
 
 
 ### Is it good ?
 
+
 ### Yes.
 
 
+### More ?
 - Surprisingly easy to implement
 - Great usability
   - List all content types, with field definitions and types
-  - Browsing content is really convenient
   - Types can be inspected when browsing
+  - Browsing content is really convenient
 
 
 ![Come here](https://media.giphy.com/media/26BRzQS5HXcEWM7du/giphy.gif)
 
 
-#### Great FieldTypes flexibility
-- GraphQL interfaces
+### Flexible FieldType
+- GraphQL Interfaces
+  `... on InterfaceName { InterfaceSpecificField }`
+
 - Interface per fieldtype
-  - Specific variation of an image
-  - HTML version of richtext
-  - Name of related content
+  - Variations of an image
+  - Converted richtext
+  - Direct access to relations
+  - Geo coordinates from location
 
 
 ![Come here](https://media.giphy.com/media/26BRzQS5HXcEWM7du/giphy.gif)
+
+
+### Fitting YOUR content model
+We could go even further:
+
+```
+{
+  contentModel {
+    article {
+      name { text }
+      intro { html5 }
+    }
+    place {
+      name { text }
+      location { address latitude longitude }
+    }
+  }
+}
+```
+
+
+![Come here](https://media.giphy.com/media/26BRzQS5HXcEWM7du/giphy.gif)
+
+(one last time)
 
 
 ### Limitations
@@ -104,3 +125,22 @@ API Platform as a basis / inspiration
     - ratings
 - Not optimised
 
+
+### Future
+Rework will have to happen one day
+
+
+### REST V3: API Platform ?
+
+
+- Centered around entities and operations on those
+- Our entities are value objects
+- Uses Symfony Serialization
+
+
+- Very well maintained
+- Modern formats, HATOAS
+- GraphQL (using webonyx)
+- Schema.org
+- Dynamically self-documented (Swagger/OpenAPI)
+- Built to be re-used by your own code
