@@ -1,15 +1,5 @@
-### Overview
-
-I. Public API
-- What is an API?
-- What is and is not a part of API.
-- Overview of eZ Platform PHP API services.
-- Accessing Public API Services.
-- Why to use API?
-- Semantic Versioning and BC promise.
-- Example BC-guaranteed usages.
-- SPI and differences with API.
-- Repository examples (PHP API).
+## Public API
+## How and why use it, BC promise explained
 
 
 ### What is an API?
@@ -121,9 +111,19 @@ Backward Compatibility promise is related mostly to changes between minor (Y) ve
 
 **Any minor release Y will not break existing code written for major version X.**
 
-#### eZ Platform API
+
+### eZ Platform API
 
 We ensure that any usage of API from the Consumer point of view will work across any minor (Y) release.
+
+composer.json:
+```json
+{
+    "require": {
+        "ezsystems/ezpublish-kernel": "^7.1"
+    }
+}
+```
 
 
 ### Examples of BC and non-BC guaranteed usages:
@@ -135,7 +135,7 @@ class MyService
   /** @var \eZ\Publish\API\Repository\ContentService */
   private $contentService;
 
-  public method doSomething()
+  public function doSomething()
   {
     // ...
     $this->contentService->publishVersion($versionInfo);
@@ -151,7 +151,7 @@ use eZ\Publish\API\Repository\ContentService;
 
 class MyService implements ContentService
 {
-  public method doSomething()
+  public function publishVersion(VersionInfo $versionInfo)
   {
     // ...
   }
@@ -163,7 +163,39 @@ class MyService implements ContentService
 
 ### Service Provider Interface
 
-- Special kind of API maintained for Developers extending it.
+- Special kind of API intended for Developers extending parts of the system.
 - BC promise for SPI guarantees that classes extending or implementing it will not break across minor versions.
 - eZ Platform provides SPI interfaces and abstract classes in the `eZ\Publish\SPI\` namespace.
-- Exception: `eZ\Publish\SPI\Persistence` namespace which can change across minor versions due to API persistence layer needs.
+- Exceptional case: `eZ\Publish\SPI\Persistence` namespace which can change across minor versions due to API persistence layer needs.
+
+
+- Sometimes there is no other way than to use code for which there is no BC guarantee.
+- What to do?<!-- .element: class="fragment" -->
+- Unit-Test it!<!-- .element: class="fragment" -->
+
+
+#### Unit testing custom unsupported implementations
+
+composer.json:
+```json
+{
+    "require": {
+        "ezsystems/ezpublish-kernel": "^7.1@dev"
+    }
+}
+```
+
+```php
+use PHPUnit\Framework\TestCase;
+
+class MyServiceTest extends TestCase
+{
+    public function testPublishVersion()
+    {
+        $service = new MyService();
+        // ...
+        $service->publishVersion($versionInfo);
+        // ...
+    }
+}
+```
