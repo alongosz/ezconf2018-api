@@ -126,7 +126,7 @@ composer.json:
 ```
 
 
-### Examples of BC and non-BC guaranteed usages:
+### Examples of BC guaranteed usages:
 
 Backward Compatibility is guaranteed for:
 ```php
@@ -143,30 +143,6 @@ class MyService
   }
 }
 ```
-
-
-Backward Compatibility is **NOT** guaranteed for:
-```php
-use eZ\Publish\API\Repository\ContentService;
-
-class MyService implements ContentService
-{
-  public function publishVersion(VersionInfo $versionInfo)
-  {
-    // ...
-  }
-}
-```
-
-**API that allows extending or implementing itself by 3rd party software is called SPI**
-
-
-### Service Provider Interface
-
-- Special kind of API intended for Developers extending parts of the system.
-- BC promise for SPI guarantees that classes extending or implementing it will not break across minor versions.
-- eZ Platform provides SPI interfaces and abstract classes in the `eZ\Publish\SPI\` namespace.
-- Exceptional case: `eZ\Publish\SPI\Persistence` namespace which can change across minor versions due to API persistence layer needs.
 
 
 - Sometimes there is no other way than to use code for which there is no BC guarantee.
@@ -187,14 +163,15 @@ composer.json:
 
 ```php
 use PHPUnit\Framework\TestCase;
+use eZ\Publish\Core\Something;
 
-class MyServiceTest extends TestCase
+class ClassUsingSomethingTest extends TestCase
 {
-    public function testPublishVersion()
+    public function testSomething()
     {
-        $service = new MyService();
+        $class = new MyClassUsingSomething();
         // ...
-        $service->publishVersion($versionInfo);
+        $class->doSomething();
         // ...
     }
 }
