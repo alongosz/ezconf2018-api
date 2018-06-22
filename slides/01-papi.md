@@ -43,8 +43,10 @@ Note: mention that there are exceptions when it comes to Core.
 - Search Service.
 - Section Service.
 - Trash Service.
+- URL Service
 - URL Alias Service.
 - User Service.
+- Bookmark Service.
 ```
 
 Note: URLWildcardService is not mentioned as it is not used.
