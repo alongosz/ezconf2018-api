@@ -131,8 +131,8 @@ Request:
 ```http
 POST /user/sessions HTTP/1.1
 Host: www.example.net
-Accept: application/vnd.ez.api.Session+xml
-Content-Type: application/vnd.ez.api.SessionInput+json
+Accept: application/vnd.ez.api.Session+json
+Content-Type: application/vnd.ez.api.SessionInput+xml
 
 <?xml version="1.0" encoding="UTF-8"?>
 <SessionInput>
